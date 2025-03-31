@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio - McKameDev</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AlpineJS para interacciones dinámicas -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/icon.png" type="image/png" />
+
+    <!-- Fuente Bebas Neue y Montserrat para mejor estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Estilos personalizados -->
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #1a1a1a, #0d1117);
+        color: #d1d5db;
+      }
+      .text-gradient {
+        background: linear-gradient(45deg, #14b8a6, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 1.5rem;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+      }
+      .profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      }
+      .btn-custom {
+        padding: 12px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="bg-gray-900 shadow-md py-4">
+      <div class="container mx-auto flex justify-between items-center px-6">
+        <h1 class="text-2xl font-bold text-teal-400">McKameDev</h1>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="text-center py-16">
+      <div class="container mx-auto px-6">
+        <img src="/profile.jpg" alt="Foto de perfil" class="profile-img mx-auto mb-4" />
+        <h2 class="text-4xl font-bold text-gradient">Cristóbal Murillo Bascuñán</h2>
+        <p class="text-lg mt-2 font-semibold">Desarrollador de Software | FullStack | Ingeniero Informático</p>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+          Especializado en desarrollo web y optimización de sistemas. Apasionado por la tecnología, siempre en búsqueda de innovación.
+        </p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <a href="#projects" class="btn-custom bg-teal-400 text-gray-900 font-semibold shadow-md">Ver Proyectos</a>
+          <a href="/cv/McKameDev_CV.pdf" download class="btn-custom bg-gray-700 text-white font-semibold shadow-md">Descargar CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="py-16">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gradient">Habilidades</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center mt-6">
+          <div class="card">
+            <img src="/icons/html.svg" alt="HTML" class="w-16 h-16 mx-auto mb-2" />
+            <p>HTML</p>
+          </div>
+          <div class="card">
+            <img src="/icons/css.svg" alt="CSS" class="w-16 h-16 mx-auto mb-2" />
+            <p>CSS</p>
+          </div>
+          <div class="card">
+            <img src="/icons/javascript.svg" alt="JavaScript" class="w-16 h-16 mx-auto mb-2" />
+            <p>JavaScript</p>
+          </div>
+          <div class="card">
+            <img src="/icons/react.svg" alt="React" class="w-16 h-16 mx-auto mb-2" />
+            <p>React</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="projects" class="py-16 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gradient">Proyectos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <div class="card">
+            <h3 class="text-xl font-bold text-teal-400">Sistema de Pesaje</h3>
+            <p class="text-gray-300">Desarrollo de un software con Node.js y Electron para pesaje digital.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold text-teal-400">Gestión Empresarial</h3>
+            <p class="text-gray-300">Sistema de gestión interna con React y Node.js, optimizando procesos empresariales.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold text-teal-400">PVC Nexus</h3>
+            <p class="text-gray-300">Proyecto de software personal para gestión de productos y logística.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="py-16">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-gradient">Contacto</h2>
+        <div class="flex justify-center space-x-6 mt-6">
+          <a href="https://github.com/MckameDev" target="_blank" class="text-teal-400 hover:text-gray-300 text-3xl">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:cristobalmurillo04@gmail.com" class="text-teal-400 hover:text-gray-300 text-3xl">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/cristobalmurillo" target="_blank" class="text-teal-400 hover:text-gray-300 text-3xl">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-gray-300 text-center py-4">
+      <p>&copy; 2025 McKameDev. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

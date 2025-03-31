@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio - McKameDev</title>
+    <!-- ESTILOS GLOBALES -->
+    <!-- Si usas Tailwind por CDN (solo para demo), podrías incluir lo siguiente: -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- O tu archivo compilado con Tailwind (por ejemplo 'global.css') -->
+    <link rel="stylesheet" href="/portfolio/src/styles/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    
+    <!-- Iconos de FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    
+    <!-- Fuente Bebas Neue -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Estilos Personalizados */
+      body {
+        font-family: 'Bebas Neue', sans-serif !important;
+      }
+      .hover-effect:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+      }
+      .equal-height {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1rem;
+      }
+      .hero-banner {
+        position: relative;
+        background: url('/src/assets/banner.jpg') no-repeat center center/cover;
+      }
+      .hero-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6); /* Oscurece ligeramente el fondo */
+        z-index: 1;
+      }
+      .hero-banner > * {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-btn {
+        transition: all 0.3s ease;
+      }
+      .hero-btn:hover {
+        transform: scale(1.1);
+      }
+      .hover-effect:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+        background: linear-gradient(135deg, #0d9488, #14b8a6);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-gray-300">
+    <!-- Encabezado -->
+    <header class="bg-gray-800 shadow-md">
+      <nav
+        class="container mx-auto p-4 flex justify-between items-center relative"
+      >
+        <div class="text-xl font-bold text-gray-300">McKameDev</div>
+
+        <!-- Menú de navegación -->
+        <div x-data="{ open: false }" class="relative">
+          <button
+            class="text-gray-300 text-2xl md:hidden focus:outline-none"
+            id="menu-btn"
+            aria-label="Menu"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <ul
+            id="menu"
+            class="hidden md:flex space-x-4 font-semibold absolute md:static bg-gray-800 top-16 md:top-auto left-0 w-full md:w-auto transition-all duration-300 ease-in-out"
+          >
+          <li class="border-b md:border-none border-gray-700 md:py-0 py-2">
+            <a href="#about" class="block px-4 text-gray-300 hover:text-teal-400">
+              Sobre Mí
+            </a>
+          </li>
+          <li class="border-b md:border-none border-gray-700 md:py-0 py-2">
+            <a href="#skills" class="block px-4 text-gray-300 hover:text-teal-400">
+              Habilidades
+            </a>
+          </li>
+          <li class="border-b md:border-none border-gray-700 md:py-0 py-2">
+            <a href="#projects" class="block px-4 text-gray-300 hover:text-teal-400">
+              Proyectos
+            </a>
+          </li>
+          <li class="md:py-0 py-2">
+            <a href="#contact" class="block px-4 text-gray-300 hover:text-teal-400">
+              Contacto
+            </a>
+          </li>
+        </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <section
+      id="hero"
+      class="text-center py-20 text-teal-400 hero-banner"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl mb-4 font-bold">Hola, soy McKameDev</h1>
+        <img
+          src="/profile.jpg"
+          alt="Foto de perfil"
+          class="profile-img max-w-full mx-auto"
+        />
+        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-teal-400">
+          Cristóbal Murillo Bascuñán
+        </h3>
+        <p class="text-lg mt-2 mb-6 font-semibold">Desarrollador de Software | FullStack | Ingeniero Informático</p>
+        <p class="text-gray-300 max-w-2xl mx-auto text-justify leading-relaxed">
+          Soy un ingeniero informático con experiencia integral en el desarrollo
+          fullstack web. Me especializo en crear soluciones escalables e
+          innovadoras, optimizando procesos y mejorando la eficiencia de sistemas
+          empresariales. Con habilidades avanzadas en múltiples lenguajes de
+          programación y frameworks, he participado en proyectos colaborativos de
+          alto impacto, aplicando siempre prácticas modernas para ofrecer
+          resultados de alta calidad.
+        </p>
+        <div class="mt-8 space-y-4 sm:space-y-0 sm:space-x-4">
+          <a
+            href="#projects"
+            class="inline-block bg-teal-400 text-gray-900 px-9 py-3 rounded-md shadow-md hover:bg-teal-300 hero-btn"
+          >
+            Ver Proyectos
+          </a>
+          <a
+            href="/cv/McKameDev_CV.pdf"
+            download
+            class="inline-block bg-teal-400 text-gray-900 px-6 py-3 rounded-md shadow-md hover:bg-teal-300 hero-btn"
+          >
+            Descargar CV <i class="fas fa-download ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre mí (Opcional) -->
+    <section id="about" class="bg-gray-900 py-16">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8">
+        <!-- Contenido de "Sobre Mí" si deseas ponerlo aparte -->
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="py-16 bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-4xl font-bold text-center mb-6 text-teal-400">
+          Habilidades
+        </h2>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center"
+        >
+          <!-- JS / Node / React / Electron -->
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/javascript.svg"
+              alt="JavaScript Icon"
+              class="w-20 bg-yellow-300 h-20 mx-auto"
+            />
+            <p class="mt-2">JavaScript</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/react.svg"
+              alt="React Icon"
+              class="w-20 bg-gray-900 h-20 mx-auto"
+            />
+            <p class="mt-2">React</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/nodejs.svg"
+              alt="Node.js Icon"
+              class="w-20 bg-gray-300 h-20 mx-auto"
+            />
+            <p class="mt-2">Node.js</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/electron.png"
+              alt="Electron Icon"
+              class="w-20 bg-gray-200 h-20 mx-auto"
+            />
+            <p class="mt-2">Electron</p>
+          </div>
+
+          <!-- Python / Django / Flask / Odoo -->
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/python.svg"
+              alt="Python Icon"
+              class="w-20 bg-gray-900 h-20 mx-auto"
+            />
+            <p class="mt-2">Python</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/flask.png"
+              alt="Flask Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">Flask</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/django.svg"
+              alt="Django Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">Django</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/odoo.svg"
+              alt="Odoo Icon"
+              class="w-20 bg-gray-900 h-20 mx-auto"
+            />
+            <p class="mt-2">Odoo</p>
+          </div>
+
+          <!-- DB: MySQL, SQLServer, Mongo, PostgreSQL -->
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/mysql.png"
+              alt="MySQL Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">MySQL</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/sqlserver.png"
+              alt="SQL Server Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">SQL Server</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/mongodb.png"
+              alt="MongoDB Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">MongoDB</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/postgresql.svg"
+              alt="PostgreSQL Icon"
+              class="w-20 bg-gray-900 h-20 mx-auto"
+            />
+            <p class="mt-2">PostgreSQL</p>
+          </div>
+
+          <!-- Frontend -->
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/html.svg"
+              alt="HTML Icon"
+              class="w-20 bg-gray-200 h-20 mx-auto"
+            />
+            <p class="mt-2">HTML</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/css.svg"
+              alt="CSS Icon"
+              class="w-20 bg-gray-200 h-20 mx-auto"
+            />
+            <p class="mt-2">CSS</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/boostrap.svg"
+              alt="Bootstrap Icon"
+              class="w-20 bg-gray-900 h-20 mx-auto"
+            />
+            <p class="mt-2">Bootstrap</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/tailwind.png"
+              alt="Tailwind Icon"
+              class="w-20  h-20 mx-auto"
+            />
+            <p class="mt-2">TailWind CSS</p>
+          </div>
+
+
+          <!-- Otros: PHP, Java, Postman, GitHub -->
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/php.png"
+              alt="PHP Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">PHP</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/Java.png"
+              alt="Java Icon"
+              class="w-20 h-20 bg-gray-100 mx-auto"
+            />
+            <p class="mt-2">Java</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/postman.svg"
+              alt="Postman Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">Postman</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded-lg shadow-md hover-effect">
+            <img
+              src="/icons/github.svg"
+              alt="Github Icon"
+              class="w-20 h-20 mx-auto"
+            />
+            <p class="mt-2">GitHub</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="py-16 bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-4xl font-bold text-center mb-6 text-teal-400">
+          Proyectos
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-md equal-height">
+            <h3 class="text-xl font-bold text-teal-400 project-title">
+              Sistema de Pesaje y Etiquetado con Node.js y Electron
+            </h3>
+            <p class="text-gray-300 text-justify project-text">
+              Desarrollo de un software con Node.js y Electron para el pesaje
+              preciso de envases mediante integración con una balanza digital.
+              El sistema registra los datos y genera etiquetas personalizadas
+              listas para impresión, garantizando precisión y eficiencia
+              operativa. Debido a acuerdos de confidencialidad, no se pueden
+              proporcionar imágenes del proyecto.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-md equal-height">
+            <h3 class="text-xl font-bold text-teal-400 project-title">
+              Sistema de Gestión de Procesos Internos con Node.js y React.js
+            </h3>
+            <p class="text-gray-300 text-justify project-text">
+              Desarrollo de módulos internos para gestionar el procesamiento de
+              productos con flujos de trabajo no lineales. Implementado en
+              Node.js y React.js, optimiza procesos y movimientos específicos
+              mediante APIs flexibles y escalables. Por confidencialidad, no se
+              pueden compartir imágenes del sistema.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-md equal-height">
+            <h3 class="text-xl font-bold text-teal-400 project-title">
+              PVC Nexus - Sistema de Gestión Empresarial Personal
+            </h3>
+            <p class="text-gray-300 text-justify project-text">
+              Proyecto personal desarrollado en React.js y Node.js para
+              administrar ventas, compras, productos y logística. Proporciona
+              control total sobre inventarios y procesos, con integración de
+              APIs RESTful para escalabilidad y flexibilidad futura.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="py-16 bg-gray-800">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-4xl font-bold text-center mb-6 text-teal-400">
+          Contacto
+        </h2>
+        <div class="flex justify-center space-x-6">
+          <a
+            href="https://www.linkedin.com/in/crist%C3%B3bal-mauricio-murillo-bascu%C3%B1an-b746021a0/"
+            target="_blank"
+            class="text-teal-400 hover:text-gray-300 text-3xl"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/MckameDev"
+            target="_blank"
+            class="text-teal-400 hover:text-gray-300 text-3xl"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="mailto:cristobalmurillo04@gmail.com"
+            class="text-teal-400 hover:text-gray-300 text-3xl"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/cristobalmckame/"
+            target="_blank"
+            class="text-teal-400 hover:text-gray-300 text-3xl"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-800 text-gray-300 text-center py-4">
+      <p>&copy; 2025 McKameDev. Sitio desarrollado en Astro.</p>
+    </footer>
+
+    <!-- SCRIPT para el menú hamburguesa en pantallas pequeñas -->
+    <script>
+      const menuBtn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu');
+    
+      if (menuBtn && menu) {
+        menuBtn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      } else {
+        console.error("El botón o el menú no se encuentran en el DOM.");
+      }
+    </script>
+    
+  </body>
+</html>
